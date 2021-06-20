@@ -8,9 +8,9 @@ function Home(props: RouteConfigComponentProps) {
   return (
     <div>
       <Top>
-        <span className="iconfont menu">&#xe65c;</span>
+        <span className="iconfont menu icon-caidan"></span>
         <span className="title">网易云音乐</span>
-        <span className="iconfont search">&#xe62b;</span>
+        <span className="iconfont search icon-41"></span>
       </Top>
       <Tab>
         <NavLink to="/recommend" activeClassName="selected">

@@ -1,7 +1,16 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { createStore, applyMiddleware, AnyAction } from "redux";
+import thunk, { ThunkDispatch } from "redux-thunk";
 import reducer from "./reducer";
 
-const store = createStore(reducer, applyMiddleware(thunk));
+export type RootState = ReturnType<typeof reducer>;
+
+export type GetState = () => RootState;
+
+export type NewDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
+
+const store = createStore(
+  reducer,
+  applyMiddleware<NewDispatch, RootState>(thunk)
+);
 
 export default store;
